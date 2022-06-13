@@ -1,0 +1,8 @@
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.csproj.AssemblyReference.cache
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.AssemblyInfoInputs.cache
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.AssemblyInfo.cs
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.csproj.CoreCompileInputs.cache
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.RazorAssemblyInfo.cache
+C:\Users\joldo\source\repos\MSDB\MSDB\obj\Release\netcoreapp3.1\MSDB.RazorAssemblyInfo.cs

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<MSDB.Budget>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="justify-content-center">Бюджет</h1>
+<style>
+
+</style>
+
+<p>
+    <a asp-action="Create">Создать новый</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h6>Сумма Бюджета</h6>
+            </th>
+            <th>
+                <h6>Процент</h6>
+            </th>
+            <th>
+                <h6>Бонус</h6>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SumBudget)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Procent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonus)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

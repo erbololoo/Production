@@ -1,0 +1,77 @@
+﻿@model IEnumerable<MSDB.Ingredients>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Ингредиенты</h1>
+<form asp-action="Index" method="get" name="frm">
+    <div class="form-actions no-color">
+        <select name="Searching" id="sort-recruiters" class="form-control" style="width: 20%;" asp-items="ViewBag.Product">
+            @foreach (var item in Model)
+            {
+                <option selected disabled style="display:none">@item.ProductNavigation.Name</option>
+            }
+        </select>
+    </div>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $('select#sort-recruiters').change(function() {
+var filter = $(this).val();
+    filterList(filter);
+});
+    function func() {
+        let select = $("#sort-recruiters option:selected").val();
+        let input = document.querySelector("#ID");
+        input.value = select;
+    };
+    function filterList(value) {
+var list = $(".recruiter .recruiter-info");
+    $(list).hide();
+    if (value == "All") {
+        $(".recruiter").find("tr").each(function (i) {
+            $(this).show();
+        });
+} else {
+        $(".recruiter").find("tr[data-custom-type*=" + value + "]").each(function (i) {
+            $(this).show();
+        });
+}
+}</script>
+
+<form asp-action="Create" method="get">
+    <input type="hidden" id="ID" name="ID" />
+    <button type="submit" onclick="func()">Создать новый</button>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h6>Количество</h6>
+            </th>
+            <th>
+                <h6>Сырье</h6>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody class="recruiter">
+        @foreach (var item in Model)
+        {
+            <tr class="recruiter-info" data-custom-type="@Html.DisplayFor(modelItem => item.ProductNavigation.Id)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RawMaterialNavigation.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

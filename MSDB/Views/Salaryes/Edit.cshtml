@@ -1,0 +1,84 @@
+﻿@model MSDB.Models.Salaryes
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Изменение</h1>
+
+<h4>Зарплата</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Year" class="control-label">Год</label>
+                <input asp-for="Year" class="form-control" />
+                <span asp-validation-for="Year" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Month" class="control-label">Месяц</label>
+                <input asp-for="Month" class="form-control" />
+                <span asp-validation-for="Month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee" class="control-label">Сотрудник</label>
+                <select asp-for="Employee" class="form-control" asp-items="ViewBag.Employee"></select>
+                <span asp-validation-for="Employee" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParticipationInThePurchase" class="control-label">Участие в закупке</label>
+                <input asp-for="ParticipationInThePurchase" class="form-control" />
+                <span asp-validation-for="ParticipationInThePurchase" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParticipationOnSale" class="control-label">Участие в продаже</label>
+                <input asp-for="ParticipationOnSale" class="form-control" />
+                <span asp-validation-for="ParticipationOnSale" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParticipationOnProduction" class="control-label">Участие в производстве</label>
+                <input asp-for="ParticipationOnProduction" class="form-control" />
+                <span asp-validation-for="ParticipationOnProduction" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalNumberOfParticipations" class="control-label">Итого</label>
+                <input asp-for="TotalNumberOfParticipations" class="form-control" />
+                <span asp-validation-for="TotalNumberOfParticipations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Bonus" class="control-label">Бонус</label>
+                <input asp-for="Bonus" class="form-control" />
+                <span asp-validation-for="Bonus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Зарплата</label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalSum" class="control-label">Общая сумма</label>
+                <input asp-for="TotalSum" class="form-control" />
+                <span asp-validation-for="TotalSum" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Boolean" /> @Html.DisplayNameFor(model => model.Boolean)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад в список</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

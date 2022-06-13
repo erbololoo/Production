@@ -1,0 +1,47 @@
+﻿@model MSDB.Prodution
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать</h1>
+
+<h4>Продукция</h4>
+<h2>@ViewBag.Massage</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product" class="control-label">Продукция</label>
+                <select asp-for="Product" class ="form-control" asp-items="ViewBag.Product"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Количество</label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label">Дата</label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee" class="control-label">Сотрудник</label>
+                <select asp-for="Employee" class ="form-control" asp-items="ViewBag.Employee"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад в список</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

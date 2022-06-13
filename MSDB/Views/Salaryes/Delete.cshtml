@@ -1,0 +1,87 @@
+﻿@model MSDB.Models.Salaryes
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы действительно хотите удалить это?</h3>
+<div>
+    <h4>Salaryes</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Year)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Month)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Month)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ParticipationInThePurchase)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ParticipationInThePurchase)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ParticipationOnSale)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ParticipationOnSale)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ParticipationOnProduction)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ParticipationOnProduction)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalNumberOfParticipations)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalNumberOfParticipations)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bonus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bonus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalSum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalSum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Boolean)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Boolean)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeNavigation.Id)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+﻿@model MSDB.Ingredients
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Создать</h1>
+
+<h4>Ингредиенты</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Product" class="control-label">Продукция</label>
+                <select asp-for="Product" class ="form-control" asp-items="ViewBag.Product"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="RawMaterial" class="control-label">Сырье</label>
+                <select asp-for="RawMaterial" class ="form-control" asp-items="ViewBag.RawMaterial"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label">Количество</label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Назад в список</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

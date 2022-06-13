@@ -1,0 +1,126 @@
+﻿@model IEnumerable<MSDB.Models.Salaryes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Зарплата</h1>
+<form asp-controller="Salaryes" asp-action="Index" method="get">
+    <p>
+        <main class="container-fluid pt-3">
+            <div class="d-flex justify-content-between">
+                <div class="row g-3">
+                    <div class="col-auto">
+                        @Html.DropDownList("yearstring", ViewBag.Yea as SelectList, "Выберите год", new { @ID = "vee" })
+                        @*<select class="form-control" aria-label="Default select example" name="yearString" value="@ViewBag.yearString">
+            </select>*@
+                    </div>
+                    <div class="col-auto">
+                        @Html.DropDownList("monthstring", ViewBag.Month as SelectList, "Выберите месяц", new { @ID = "vee" })
+                        @*<select class="form-control" aria-label="Default select example" name="monthString" value="@ViewBag.monthString">
+            </select>*@
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-dark" value="Calculate">Вывести</button>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" asp-action="IndexAdd" class="btn btn-dark">Выдать зарплату</button>
+                    </div>
+                    <div>
+                        <input value="@ViewBag.Summa" />
+                    </div>
+                </div>
+            </div>
+            <p></p>
+        </main>
+    </p>
+</form>
+<h2>@ViewBag.Message</h2>
+<p>
+    <a asp-action="Create">Создать новый</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <h6>Год</h6>
+            </th>
+            <th>
+                <h6>Месяц</h6>
+            </th>
+            <th>
+                <h6>Участие в закупке</h6>
+            </th>
+            <th>
+                <h6>Участие в продаже</h6>
+            </th>
+            <th>
+                <h6>Участие в производстве</h6>
+            </th>
+            <th>
+                <h6>Общее кол участий</h6>
+            </th>
+            <th>
+                <h6>Бонус</h6>
+            </th>
+            <th>
+                <h6>Зарплата</h6>
+            </th>
+            <th>
+                <h6>Общая сумма</h6>
+            </th>
+            <th>
+                <h6>Выдача</h6>
+            </th>
+            <th>
+                <h6>Сотрудники</h6>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Year_NameNavigation.Year_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthNavigation.Month_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipationInThePurchase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipationOnSale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ParticipationOnProduction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalNumberOfParticipations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bonus)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salary)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalSum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Boolean)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeNavigation.Fio)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Изменить</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Удалить</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+</table>

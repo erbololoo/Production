@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Производство</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="d-flex justify-content-center py-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-muted border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-black-50" asp-area="" asp-controller="Home" asp-action="Index">Производство</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Budgets" asp-action="Index">Бюджет</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Employees" asp-action="Index">Сотрудники</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Positions" asp-action="Index">Должности</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Salaryes" asp-action="Index">Зарплата</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="BuyRawMaterials" asp-action="Index">Сырье</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Ingredients" asp-action="Index">Ингредиенты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="FinishedProducts" asp-action="Index">Продукция</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="PurchaseOfRawMaterials" asp-action="Index">Закупка</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="SaleOfProducts" asp-action="Index">Продажа</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Produtions" asp-action="Index">Производство</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-black" asp-area="" asp-controller="Units" asp-action="Index">Единица Измерения</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+</nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - MSDB - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
